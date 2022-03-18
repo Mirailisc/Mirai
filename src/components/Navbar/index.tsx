@@ -17,7 +17,7 @@ const Navbar = () => {
       </ReachLink>
       <div className={styles.links}>
         <Link as={ReachLink} className={styles.Link} to="/Mirai/certificate">
-          certificate
+          certificates
         </Link>
         <Link className={styles.Link} href="https://github.com/Mirailisc/Mirai" isExternal>
           source
@@ -28,7 +28,7 @@ const Navbar = () => {
             <HamburgerIcon/>
           </MenuButton>
           <MenuList>
-            <MenuItem as={ReachLink} to="/certificate">
+            <MenuItem as={ReachLink} to="/Mirai/certificate">
               Certificates
             </MenuItem>
             <MenuItem as={Link}  href="https://github.com/Mirailisc/Mirai" isExternal>
