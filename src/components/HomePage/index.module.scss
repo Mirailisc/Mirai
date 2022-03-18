@@ -1,0 +1,136 @@
+.welcomeSection {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .avatar {
+        display: none;
+    }
+
+    .avatar, .avatar2 {
+        width: 40%;
+        user-select: none;
+        animation: flying 3s ease-in-out .1s infinite;
+        
+    }
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+        justify-content: center;
+
+        .text {
+            padding: 10px;
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+
+        .avatar {
+            display: block;
+            width: 40%;
+        }
+
+        .avatar2 {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .avatar {
+            width: 80%;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .text > p {
+            font-size: 14px;
+        }
+    }
+}
+
+@keyframes flying {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+}
+
+.aboutSection {
+    min-height: 80vh;
+    position: relative;
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            width: 200px;
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 50px;
+
+        .profile {
+            width: 350px;
+            height: fit-content;
+            border-radius: 100%;
+            margin-bottom: 10rem;
+        }
+
+        .text {
+            .list {
+                columns: 2;
+            }
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .content {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .header h2 {
+            width: 300px;
+        }
+
+        .content .text .list {
+            columns: unset;
+        }
+    }
+}
+
+.workSection {
+    min-height: 50vh;
+    
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            width: 230px;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .header h2 {
+            width: 400px;
+        }
+    }
+}
