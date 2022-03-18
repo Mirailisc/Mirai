@@ -11,12 +11,12 @@ const Navbar = () => {
 
   return (
     <div className={styles.Navbar}>
-      <ReachLink to="/" className={styles.header}>
+      <ReachLink to="/Mirai/" className={styles.header}>
         <img src={colorMode === 'light' ? Logo_dark : Logo_light} alt="logo" />
         <Heading as="h1" >Mirailisc</Heading>
       </ReachLink>
       <div className={styles.links}>
-        <Link as={ReachLink} className={styles.Link} to="/certificate">
+        <Link as={ReachLink} className={styles.Link} to="/Mirai/certificate">
           certificate
         </Link>
         <Link className={styles.Link} href="https://github.com/Mirailisc/Mirai" isExternal>

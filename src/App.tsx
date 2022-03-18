@@ -19,8 +19,8 @@ function App() {
       <div className="App">
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/certificate" element={<CertPage />} />
+            <Route path="/Mirai/" element={<HomePage />} />
+            <Route path="/Mirai/certificate" element={<CertPage />} />
           </Routes>
         </AnimatePresence>
       </div>

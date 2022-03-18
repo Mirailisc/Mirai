@@ -158,26 +158,29 @@
         text-align: center;
         margin-bottom: 20rem;
 
-        .linkCard {
-            text-decoration: none;
+        .fade {
             display: inline-block;
             margin: 20px;
-            text-align: left;
 
-            .card {
-                transition: all 300ms;
-                width: 70vw;
-                height: 300px;
-                position: relative;
-
-                .icon {
-                    position: absolute;
-                    bottom: 10px;
-                    left: 10px;
-                }
+            .linkCard {
+                text-decoration: none;
+                text-align: left;
     
-                &:hover {
-                    transform: scale(1.05) translateY(10px);
+                .card {
+                    transition: all 300ms;
+                    width: 70vw;
+                    height: 300px;
+                    position: relative;
+    
+                    .icon {
+                        position: absolute;
+                        bottom: 10px;
+                        left: 10px;
+                    }
+        
+                    &:hover {
+                        transform: scale(1.05) translateY(10px);
+                    }
                 }
             }
         }
@@ -188,7 +191,7 @@
             width: 300px;
         }
 
-        .content .linkCard .card {
+        .content .fade .linkCard .card {
             height: 400px;
         }
     }
