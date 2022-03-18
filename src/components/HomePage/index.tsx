@@ -88,7 +88,6 @@ const HomePage = () => {
                 },
               },
               particles: {
-                // canvas borders bounce factors
                 bounce: {
                   horizontal: {
                     value: 1,
@@ -98,10 +97,10 @@ const HomePage = () => {
                   },
                 },
                 color: {
-                  value: '#ffffff',
+                  value: colorMode === 'light' ? '#000000' : '#ffffff',
                 },
                 links: {
-                  color: '#ffffff',
+                  color: colorMode === 'light' ? '#000000' : '#ffffff',
                   distance: 150,
                   enable: true,
                   opacity: 0.5,
@@ -109,7 +108,6 @@ const HomePage = () => {
                 },
                 collisions: {
                   enable: true,
-                  // collisions bounce factors
                   bounce: {
                     horizontal: {
                       value: 1,
