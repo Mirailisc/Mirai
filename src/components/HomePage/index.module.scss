@@ -86,7 +86,7 @@
         gap: 50px;
 
         .profile {
-            width: 350px;
+            width: 35%;
             height: fit-content;
             border-radius: 100%;
             margin-bottom: 10rem;
@@ -107,13 +107,17 @@
         }
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
         .header h2 {
             width: 300px;
         }
 
         .content .text .list {
             columns: unset;
+        }
+
+        .content .profile {
+            width: 70%;
         }
     }
 }
@@ -136,7 +140,7 @@
         margin-bottom: 20rem;
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
         .header h2 {
             width: 400px;
         }
@@ -186,7 +190,7 @@
         }
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 500px) {
         .header h2 {
             width: 300px;
         }
