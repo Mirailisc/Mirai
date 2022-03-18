@@ -26,6 +26,7 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { projects } from '../../service/project'
 import { Fade, Slide } from 'react-awesome-reveal'
+import Particles from 'react-tsparticles'
 
 const HomePage = () => {
   const { colorMode } = useColorMode()
@@ -54,6 +55,99 @@ const HomePage = () => {
     <>
       <motion.div transition={pageTransition} variants={pageVariants} initial="initial" animate="in" exit="out">
         <section id="home" className={styles.welcomeSection}>
+          <Particles
+            options={{
+              fpsLimit: 60,
+              interactivity: {
+                detectsOn: "canvas",
+                events: {
+                  onClick: {
+                    enable: true,
+                    mode: "push",
+                  },
+                  onHover: {
+                    enable: true,
+                    mode: "connect",
+                  },
+                  resize: true,
+                },
+                modes: {
+                  bubble: {
+                    distance: 400,
+                    duration: 2,
+                    opacity: 0.8,
+                    size: 40,
+                  },
+                  push: {
+                    quantity: 4,
+                  },
+                  repulse: {
+                    distance: 200,
+                    duration: 0.4,
+                  },
+                },
+              },
+              particles: {
+                // canvas borders bounce factors
+                bounce: {
+                  horizontal: {
+                    value: 1,
+                  },
+                  vertical: {
+                    value: 1,
+                  },
+                },
+                color: {
+                  value: '#ffffff',
+                },
+                links: {
+                  color: '#ffffff',
+                  distance: 150,
+                  enable: true,
+                  opacity: 0.5,
+                  width: 1,
+                },
+                collisions: {
+                  enable: true,
+                  // collisions bounce factors
+                  bounce: {
+                    horizontal: {
+                      value: 1,
+                    },
+                    vertical: {
+                      value: 1,
+                    },
+                  },
+                },
+                move: {
+                  direction: 'none',
+                  enable: true,
+                  outMode: 'bounce',
+                  random: false,
+                  speed: 1,
+                  straight: false,
+                },
+                number: {
+                  density: {
+                    enable: true,
+                    area: 800,
+                  },
+                  value: 80,
+                },
+                opacity: {
+                  value: 0.5,
+                },
+                shape: {
+                  type: 'circle',
+                },
+                size: {
+                  random: true,
+                  value: 5,
+                },
+              },
+              detectRetina: true,
+            }}
+          />
           <img src={Mira} alt="avatar" className={styles.avatar} />
           <div className={styles.text}>
             <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Hi, My name is</Code>
@@ -163,49 +257,42 @@ const HomePage = () => {
             {projects.slice(0, itemsToShow).map((items, index: number) => {
               return (
                 <Fade key={index++} className={styles.fade}>
-                  <Link
-                    href={items.href ? items.href : items.sourceHref}
-                    key={index++}
-                    isExternal
-                    className={styles.linkCard}
-                  >
-                    <Box p={5} className={styles.card} maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-                      <Text mt={2} fontSize="xl" fontWeight="bold">
-                        {items.name}
-                      </Text>
-                      <Text mt={2} fontSize="md">
-                        {items.description}
-                      </Text>
-                      {items.tag.map((tag, index: number) => {
-                        return (
-                          <Tag mr={2} mt={2} key={index++} colorScheme={tag.scheme}>
-                            {tag.name}
-                          </Tag>
-                        )
-                      })}
-                      <div className={styles.icon}>
-                        <Link isExternal href={items.sourceHref}>
+                  <Box p={5} className={styles.card} maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+                    <Text mt={2} fontSize="xl" fontWeight="bold">
+                      {items.name}
+                    </Text>
+                    <Text mt={2} fontSize="md">
+                      {items.description}
+                    </Text>
+                    {items.tag.map((tag, index: number) => {
+                      return (
+                        <Tag mr={2} mt={2} key={index++} colorScheme={tag.scheme}>
+                          {tag.name}
+                        </Tag>
+                      )
+                    })}
+                    <div className={styles.icon}>
+                      <Link isExternal href={items.sourceHref}>
+                        <IconButton
+                          variant="ghost"
+                          colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+                          aria-label="Github"
+                          mr={2}
+                          icon={<FontAwesomeIcon icon={faGithub} />}
+                        />
+                      </Link>
+                      {items.href ? (
+                        <Link isExternal href={items.href}>
                           <IconButton
                             variant="ghost"
                             colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
                             aria-label="Github"
-                            mr={2}
-                            icon={<FontAwesomeIcon icon={faGithub} />}
+                            icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
                           />
                         </Link>
-                        {items.href ? (
-                          <Link isExternal href={items.href}>
-                            <IconButton
-                              variant="ghost"
-                              colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
-                              aria-label="Github"
-                              icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
-                            />
-                          </Link>
-                        ) : null}
-                      </div>
-                    </Box>
-                  </Link>
+                      ) : null}
+                    </div>
+                  </Box>
                 </Fade>
               )
             })}

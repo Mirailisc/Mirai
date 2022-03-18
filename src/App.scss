@@ -1,0 +1,39 @@
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #171923;
+    overflow: hidden;
+    font-size: 50px;
+    font-weight: bold;
+    letter-spacing: 5px;
+
+    & > img {
+        width: 100px;
+        height: 100px;
+        animation: fade 1s ease-in-out infinite;
+    }
+}
+
+.App {
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }   
+}
+
+@keyframes fadeIn {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
