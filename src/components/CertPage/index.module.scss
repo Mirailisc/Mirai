@@ -1,0 +1,14 @@
+.certificates {
+    display: block;
+    margin-top: 10rem;
+    margin-inline: 5rem;
+
+    .image {
+        display: inline-block;
+        margin: 20px;
+        
+        & > img {
+            width: 400px;
+        }
+    }
+}

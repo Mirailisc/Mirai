@@ -16,13 +16,10 @@ const Navbar = () => {
         <Heading as="h1" >Mirailisc</Heading>
       </ReachLink>
       <div className={styles.links}>
-        <Link as={ReachLink} className={styles.Link} to="/project">
-          projects
-        </Link>
         <Link as={ReachLink} className={styles.Link} to="/certificate">
           certificate
         </Link>
-        <Link className={styles.Link} href="#" isExternal>
+        <Link className={styles.Link} href="https://github.com/Mirailisc/Mirai" isExternal>
           source
         </Link>
         <Button className={styles.modeToggler} colorScheme={colorMode === 'light' ? 'orange' : 'blue'} onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
@@ -31,13 +28,10 @@ const Navbar = () => {
             <HamburgerIcon/>
           </MenuButton>
           <MenuList>
-            <MenuItem as={ReachLink} to="/project">
-              Projects
-            </MenuItem>
             <MenuItem as={ReachLink} to="/certificate">
               Certificates
             </MenuItem>
-            <MenuItem as={Link} href="#">
+            <MenuItem as={Link}  href="https://github.com/Mirailisc/Mirai" isExternal>
               Source
             </MenuItem>
           </MenuList>
