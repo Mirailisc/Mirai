@@ -2,13 +2,25 @@
     display: block;
     margin-top: 10rem;
     margin-inline: 5rem;
+    text-align: center;
 
     .image {
         display: inline-block;
         margin: 20px;
         
         & > img {
-            width: 400px;
+            width: 30rem;
         }
+    }
+
+    @media screen and (max-width: 700px) {
+        .image {
+            margin: 20px;
+
+            & > img {
+                width: 40rem;
+            }
+        }
+        margin-inline: 0px;
     }
 }
