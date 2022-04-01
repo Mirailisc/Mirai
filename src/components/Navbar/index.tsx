@@ -13,7 +13,6 @@ const Navbar = () => {
     <div className={styles.Navbar}>
       <ReachLink to="/" className={styles.header}>
         <img src={colorMode === 'light' ? Logo_dark : Logo_light} alt="logo" />
-        <Heading as="h1" >Mirailisc</Heading>
       </ReachLink>
       <div className={styles.links}>
         <Link as={ReachLink} className={styles.Link} to="/certificate">

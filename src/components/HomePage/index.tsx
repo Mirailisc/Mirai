@@ -13,6 +13,7 @@ import {
   ListIcon,
   ListItem,
   IconButton,
+  Image,
   Button,
   Tag,
 } from '@chakra-ui/react'
@@ -26,7 +27,8 @@ import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { projects } from '../../service/project'
 import { Fade, Slide } from 'react-awesome-reveal'
-import Particles from 'react-tsparticles'
+import Avatar_dark from '../../images/Avatar_dark.gif'
+import Avatar_light from '../../images/Avatar_light.gif'
 
 const HomePage = () => {
   const { colorMode } = useColorMode()
@@ -55,97 +57,6 @@ const HomePage = () => {
     <>
       <motion.div transition={pageTransition} variants={pageVariants} initial="initial" animate="in" exit="out">
         <section id="home" className={styles.welcomeSection}>
-          <Particles
-            options={{
-              fpsLimit: 60,
-              interactivity: {
-                detectsOn: "canvas",
-                events: {
-                  onClick: {
-                    enable: true,
-                    mode: "push",
-                  },
-                  onHover: {
-                    enable: true,
-                    mode: "connect",
-                  },
-                  resize: true,
-                },
-                modes: {
-                  bubble: {
-                    distance: 400,
-                    duration: 2,
-                    opacity: 0.8,
-                    size: 40,
-                  },
-                  push: {
-                    quantity: 4,
-                  },
-                  repulse: {
-                    distance: 200,
-                    duration: 0.4,
-                  },
-                },
-              },
-              particles: {
-                bounce: {
-                  horizontal: {
-                    value: 1,
-                  },
-                  vertical: {
-                    value: 1,
-                  },
-                },
-                color: {
-                  value: colorMode === 'light' ? '#000000' : '#ffffff',
-                },
-                links: {
-                  color: colorMode === 'light' ? '#000000' : '#ffffff',
-                  distance: 150,
-                  enable: true,
-                  opacity: 0.5,
-                  width: 1,
-                },
-                collisions: {
-                  enable: true,
-                  bounce: {
-                    horizontal: {
-                      value: 1,
-                    },
-                    vertical: {
-                      value: 1,
-                    },
-                  },
-                },
-                move: {
-                  direction: 'none',
-                  enable: true,
-                  outMode: 'bounce',
-                  random: false,
-                  speed: 1,
-                  straight: false,
-                },
-                number: {
-                  density: {
-                    enable: true,
-                    area: 800,
-                  },
-                  value: 80,
-                },
-                opacity: {
-                  value: 0.5,
-                },
-                shape: {
-                  type: 'circle',
-                },
-                size: {
-                  random: true,
-                  value: 5,
-                },
-              },
-              detectRetina: true,
-            }}
-          />
           <img src={Mira} alt="avatar" className={styles.avatar} />
           <div className={styles.text}>
             <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Hi, My name is</Code>
@@ -156,7 +67,7 @@ const HomePage = () => {
               Frontend Developer / Student / Meme Lord
             </Text>
           </div>
-          <img src={Mira} alt="avatar" className={styles.avatar2} />
+          <Image src={colorMode === 'light' ? Avatar_light : Avatar_dark} alt="avatar" className={styles.avatar2} />
         </section>
       </motion.div>
       <section id="about" className={styles.aboutSection}>

@@ -16,8 +16,10 @@ import Logo_dark from './images/logo_dark.svg'
 import Logo_light from './images/logo_light.svg'
 import Mascot from './images/mira.png'
 import Profile from './images/profile.jpg'
+import Avatar_dark from './images/Avatar_dark.gif'
+import Avatar_light from './images/Avatar_light.gif'
 
-const imgs = [Cert_1, Cert_2, Cert_3, Cert_4, Logo_dark, Logo_light, Mascot, Profile]
+const imgs = [Cert_1, Cert_2, Cert_3, Cert_4, Logo_dark, Logo_light, Mascot, Profile, Avatar_dark, Avatar_light]
 
 function App() {
   const location = useLocation()
@@ -38,13 +40,13 @@ function App() {
 
     setTimeout(() => {
       setLoading(false)
-    }, 3000)
+    })
   }
 
   useEffect(() => {
     cacheImages(imgs)
   }, [])
-
+  
   return (
     <ChakraProvider theme={theme}>
       {loading ? (

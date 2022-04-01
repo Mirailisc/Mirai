@@ -9,6 +9,7 @@ import Cert_4 from '../../images/cert_4.png'
 import Cert_5 from '../../images/cert_5.png'
 import Cert_6 from '../../images/cert_6.png'
 import Cert_7 from '../../images/cert_7.png'
+import { Text } from '@chakra-ui/react'
 
 const certArray = [Cert_1, Cert_2, Cert_3, Cert_4, Cert_5, Cert_6, Cert_7]
 
@@ -32,6 +33,9 @@ const CertPage = () => {
           })}
         </div>
       </motion.div>
+      <Text fontSize="sm" color="#939393" my={5} align="center">
+        © 2022 Phubordin Poolnai. All Rights Reserved.
+      </Text>
     </>
   )
 }

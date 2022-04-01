@@ -12,7 +12,6 @@
     .avatar, .avatar2 {
         width: 40%;
         user-select: none;
-        animation: flying 3s ease-in-out .1s infinite;
         
     }
 
@@ -52,15 +51,6 @@
         .text > p {
             font-size: 14px;
         }
-    }
-}
-
-@keyframes flying {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(20px);
     }
 }
 
