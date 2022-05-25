@@ -3,7 +3,7 @@ import styles from './index.module.scss'
 import Logo_light from '../../images/logo_light.svg'
 import Logo_dark from '../../images/logo_dark.svg'
 import { Link as ReachLink } from 'react-router-dom'
-import { Button, useColorMode, Link, Menu, MenuButton, MenuList, MenuItem, Heading } from '@chakra-ui/react'
+import { Button, useColorMode, Link, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
 import { SunIcon, MoonIcon, HamburgerIcon } from '@chakra-ui/icons'
 
 const Navbar = () => {
