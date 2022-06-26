@@ -21,10 +21,11 @@ import Cert_4 from './images/cert_4.png'
 import Cert_5 from './images/cert_5.png'
 import Cert_6 from './images/cert_6.png'
 import Cert_7 from './images/cert_7.png'
+import Cert_8 from './images/cert_8.png'
 
 const imgs: string[] = [Logo_dark, Logo_light, Mascot, Profile, Avatar_dark, Avatar_light]
 
-const certificates: string[] = [Cert_1, Cert_2, Cert_3, Cert_4, Cert_5, Cert_6, Cert_7]
+const certificates: string[] = [Cert_1, Cert_2, Cert_3, Cert_4, Cert_5, Cert_6, Cert_7, Cert_8]
 
 function App() {
   const location = useLocation()
@@ -51,7 +52,7 @@ function App() {
 
       setTimeout(() => {
         setLoading(false)
-      })
+      }, 2000)
     }
 
     preLoadImage().catch(console.error)
