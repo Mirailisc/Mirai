@@ -29,6 +29,7 @@ import { projects } from '../../service/project'
 import { Fade, Slide } from 'react-awesome-reveal'
 import Avatar_dark from '../../images/Avatar_dark.gif'
 import Avatar_light from '../../images/Avatar_light.gif'
+import { workContents, IWorkContents, IWorkDetails } from '../../service/workContent'
 
 const HomePage = () => {
   const { colorMode } = useColorMode()
@@ -52,6 +53,35 @@ const HomePage = () => {
     'Python',
     'Arduino',
   ]
+
+  const renderWorkContent = workContents.map((items: IWorkContents, index: number) => {
+    return (
+      <>
+        <Fade direction="up" key={index++}>
+          <Text fontSize="xl" mt={5} fontWeight="bold">
+            {items.header}&nbsp;
+            <Text color={colorMode === 'light' ? 'orange.500' : 'blue.200'} as="span">
+              @&nbsp;
+            </Text>
+            <Link color={colorMode === 'light' ? 'orange.500' : 'blue.200'} href={items.companyUrl} isExternal>
+              {items.companyName}
+            </Link>
+          </Text>
+          <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>{items.workDate}</Code>
+          <List spacing={3} mt={5} className={styles.list}>
+            {items.workDetails.map((items: IWorkDetails, index: number) => {
+              return (
+                <ListItem key={index++}>
+                  <ListIcon as={ChevronRightIcon} color={colorMode === 'light' ? 'orange.500' : 'blue.200'} />
+                  {items.detail}
+                </ListItem>
+              )
+            })}
+          </List>
+        </Fade>
+      </>
+    )
+  })
 
   return (
     <>
@@ -122,35 +152,7 @@ const HomePage = () => {
               </Heading>
               <Divider />
             </div>
-            <div className={styles.content}>
-              <Fade direction="up">
-                <Text fontSize="xl" mt={5} fontWeight="bold">
-                  Intern Front-end Developer{' '}
-                  <Text color={colorMode === 'light' ? 'orange.500' : 'blue.200'} as="span">
-                    @
-                  </Text>{' '}
-                  <Link
-                    color={colorMode === 'light' ? 'orange.500' : 'blue.200'}
-                    href="https://www.datability.info/"
-                    isExternal
-                  >
-                    Datability
-                  </Link>
-                </Text>
-                <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Jul 2021 - Oct 2021</Code>
-                <List spacing={3} mt={5} className={styles.list}>
-                  <ListItem>
-                    <ListIcon as={ChevronRightIcon} color={colorMode === 'light' ? 'orange.500' : 'blue.200'} />
-                    My job is to develop a CRM website for 3 Small and Medium-sized Enterprise companies with seniors in
-                    the company
-                  </ListItem>
-                  <ListItem>
-                    <ListIcon as={ChevronRightIcon} color={colorMode === 'light' ? 'orange.500' : 'blue.200'} />I work
-                    with a few technologies like React, TypeScript, GraphQL, and Sass.
-                  </ListItem>
-                </List>
-              </Fade>
-            </div>
+            <div className={styles.content}>{renderWorkContent}</div>
           </Container>
         </section>
         <section className={styles.projectSection}>

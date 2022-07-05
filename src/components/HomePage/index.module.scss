@@ -73,13 +73,13 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        position: relative;
         gap: 50px;
 
         .profile {
-            width: 35%;
-            height: 100%;
-            border-radius: 100%;
-            margin-bottom: 10rem;
+            width: 400px;
+            height: 400px;
+            border-radius: 10%;
         }
 
         .text {
@@ -94,6 +94,10 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+
+            .profile {
+                margin-bottom: 10rem; 
+            }
         }
     }
 
@@ -107,7 +111,8 @@
         }
 
         .content .profile {
-            width: 70%;
+            width: 250px;
+            height: 250px;
         }
     }
 }
