@@ -52,7 +52,7 @@ function App() {
 
       setTimeout(() => {
         setLoading(false)
-      }, 2000)
+      })
     }
 
     preLoadImage().catch(console.error)
