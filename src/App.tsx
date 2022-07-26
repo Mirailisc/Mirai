@@ -10,7 +10,6 @@ import CertPage from './components/CertPage'
 import { AnimatePresence } from 'framer-motion'
 
 // Images
-import Logo_dark from './images/logo_dark.svg'
 import Logo_light from './images/logo_light.svg'
 import { imgs, certificates } from './components/_importImage'
 

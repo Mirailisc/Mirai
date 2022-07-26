@@ -13,7 +13,6 @@ import {
   ListIcon,
   ListItem,
   IconButton,
-  Image,
   Button,
   Tag,
 } from '@chakra-ui/react'
