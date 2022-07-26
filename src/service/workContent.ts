@@ -5,17 +5,12 @@ export const workContents: IWorkContents[] = [
     companyUrl: 'https://www.datability.info/',
     workDate: "Jul 2021 - Oct 2021",
     workDetails: [
-      {
-        detail:
-          'My job is to develop a CRM website for 3 Small and Medium-sized Enterprise companies with seniors in the company',
-      },
-      {
-        detail: 'I work with a few technologies like React, TypeScript, GraphQL, and Sass.',
-      },
+      'My job is to develop a CRM website for 3 Small and Medium-sized Enterprise companies with seniors in the company',
+      'I work with a few technologies like React, TypeScript, GraphQL, and SASS.',
     ],
   },
   {
-    header: 'Fullstack Developer',
+    header: 'Web Developer',
     companyName: 'NUD Channel',
     companyUrl: 'https://nudchannel.com/',
     workDate: "June 2021 - Present",
@@ -28,9 +23,5 @@ export interface IWorkContents {
     companyName: string
     companyUrl: string
     workDate: string
-    workDetails: IWorkDetails[]
-}
-
-export interface IWorkDetails {
-    detail: string
+    workDetails: string[]
 }

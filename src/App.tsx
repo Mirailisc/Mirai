@@ -8,30 +8,15 @@ import HomePage from './components/HomePage'
 import Contact from './components/Contact'
 import CertPage from './components/CertPage'
 import { AnimatePresence } from 'framer-motion'
+
+// Images
 import Logo_dark from './images/logo_dark.svg'
 import Logo_light from './images/logo_light.svg'
-import Mascot from './images/mira.png'
-import Profile from './images/profile.jpg'
-import Avatar_dark from './images/Avatar_dark.gif'
-import Avatar_light from './images/Avatar_light.gif'
-import Cert_1 from './images/cert_1.png'
-import Cert_2 from './images/cert_2.png'
-import Cert_3 from './images/cert_3.png'
-import Cert_4 from './images/cert_4.png'
-import Cert_5 from './images/cert_5.png'
-import Cert_6 from './images/cert_6.png'
-import Cert_7 from './images/cert_7.png'
-import Cert_8 from './images/cert_8.png'
-
-const imgs: string[] = [Logo_dark, Logo_light, Mascot, Profile, Avatar_dark, Avatar_light]
-
-const certificates: string[] = [Cert_1, Cert_2, Cert_3, Cert_4, Cert_5, Cert_6, Cert_7, Cert_8]
+import { imgs, certificates } from './components/_importImage'
 
 function App() {
   const location = useLocation()
   const [loading, setLoading] = useState(true)
-
-  console.log(loading)
 
   const cacheImages = async (srcArray: any) => {
     const promises = await srcArray.map((src: any) => {
@@ -71,7 +56,7 @@ function App() {
             <Contact />
             <AnimatePresence exitBeforeEnter>
               <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<HomePage pictures={imgs}/>} />
                 <Route path="/certificate" element={<CertPage pictures={certificates} />} />
               </Routes>
             </AnimatePresence>

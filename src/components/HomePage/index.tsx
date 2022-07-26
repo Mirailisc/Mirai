@@ -18,20 +18,19 @@ import {
   Tag,
 } from '@chakra-ui/react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import Profile from '../../images/profile.jpg'
 import { motion } from 'framer-motion'
 import { pageVariants, pageTransition } from '../../service/transition'
-import Mira from '../../images/mira.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { projects } from '../../service/project'
 import { Fade, Slide } from 'react-awesome-reveal'
-import Avatar_dark from '../../images/Avatar_dark.gif'
-import Avatar_light from '../../images/Avatar_light.gif'
-import { workContents, IWorkContents, IWorkDetails } from '../../service/workContent'
+import { workContents, IWorkContents } from '../../service/workContent'
 
-const HomePage = () => {
+import { Parallax } from 'react-parallax'
+import Background from '../../images/background.jpg'
+
+const HomePage = ({ pictures }: any) => {
   const { colorMode } = useColorMode()
   const [itemsToShow, setItemsToShow] = useState(4)
 
@@ -69,11 +68,11 @@ const HomePage = () => {
           </Text>
           <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>{items.workDate}</Code>
           <List spacing={3} mt={5} className={styles.list}>
-            {items.workDetails.map((items: IWorkDetails, index: number) => {
+            {items.workDetails.map((works: string, index: number) => {
               return (
                 <ListItem key={index++}>
                   <ListIcon as={ChevronRightIcon} color={colorMode === 'light' ? 'orange.500' : 'blue.200'} />
-                  {items.detail}
+                  {works}
                 </ListItem>
               )
             })}
@@ -86,19 +85,26 @@ const HomePage = () => {
   return (
     <>
       <motion.div transition={pageTransition} variants={pageVariants} initial="initial" animate="in" exit="out">
-        <section id="home" className={styles.welcomeSection}>
-          <img src={Mira} alt="avatar" className={styles.avatar} />
-          <div className={styles.text}>
-            <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Hi, My name is</Code>
-            <Heading as="h1" size="2xl">
-              Phubordin Poolnai
-            </Heading>
-            <Text fontSize="xl" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
-              Frontend Developer / Student / Meme Lord
-            </Text>
-          </div>
-          <Image src={colorMode === 'light' ? Avatar_light : Avatar_dark} alt="avatar" className={styles.avatar2} />
-        </section>
+        <Parallax
+          blur={10}
+          bgImage={Background}
+          bgImageAlt="background"
+          bgImageSizes="cover"
+          strength={200}
+          className={styles.backgroundParallax}
+        >
+          <section id="home" className={styles.welcomeSection}>
+            <div className={styles.text}>
+              <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Hi, My name is</Code>
+              <Heading as="h1" size="2xl">
+                Phubordin Poolnai
+              </Heading>
+              <Text fontSize="xl" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
+                Developer - Student - Anime Enjoyer
+              </Text>
+            </div>
+          </section>
+        </Parallax>
         <section id="about" className={styles.aboutSection}>
           <Container maxW="container.lg">
             <div className={styles.header}>
@@ -140,7 +146,7 @@ const HomePage = () => {
                   </List>
                 </Slide>
               </div>
-              <img className={styles.profile} src={Profile} alt="profile" />
+              <img className={styles.profile} src={pictures[0]} alt="profile" />
             </div>
           </Container>
         </section>

@@ -2,21 +2,12 @@
     min-height: 100vh;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-
-    .avatar {
-        display: none;
-    }
-
-    .avatar, .avatar2 {
-        width: 40%;
-        user-select: none;
-        
-    }
+    background: rgba(23, 25, 35, 0.5);
 
     .text {
-        z-index: 2;
+        text-align: center;
     }
 
     @media screen and (max-width: 820px) {
@@ -30,21 +21,6 @@
                 font-size: 28px;
             }
         }
-
-        .avatar {
-            display: block;
-            width: 40%;
-        }
-
-        .avatar2 {
-            display: none;
-        }
-    }
-
-    @media screen and (max-width: 600px) {
-        .avatar {
-            width: 80%;
-        }
     }
 
     @media screen and (max-width: 450px) {
@@ -56,6 +32,7 @@
 
 .aboutSection {
     min-height: 80vh;
+    margin-top: 50px;
     position: relative;
 
     .header {
