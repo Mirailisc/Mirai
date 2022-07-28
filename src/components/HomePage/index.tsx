@@ -89,13 +89,11 @@ const HomePage = ({ pictures }: any) => {
           bgImage={Background}
           bgImageAlt="background"
           bgImageSizes="cover"
-          strength={200}
-          className={styles.backgroundParallax}
         >
           <section id="home" className={styles.welcomeSection}>
             <div className={styles.text}>
               <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Hi, My name is</Code>
-              <Heading as="h1" size="2xl">
+              <Heading as="h1" size="2xl" style={{color: "white"}}>
                 Phubordin Poolnai
               </Heading>
               <Text fontSize="xl" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
