@@ -10,7 +10,7 @@ import CertPage from './components/CertPage'
 import { AnimatePresence } from 'framer-motion'
 
 // Images
-import Logo_light from './images/logo_light.svg'
+import Logo_light from './images/logo_light.webp'
 import { imgs, certificates } from './components/_importImage'
 
 function App() {

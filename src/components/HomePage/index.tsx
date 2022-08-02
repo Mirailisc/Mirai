@@ -27,7 +27,7 @@ import { Fade, Slide } from 'react-awesome-reveal'
 import { workContents, IWorkContents } from '../../service/workContent'
 
 import { Parallax } from 'react-parallax'
-import Background from '../../images/background.jpg'
+import Background from '../../images/background.webp'
 
 const HomePage = ({ pictures }: any) => {
   const { colorMode } = useColorMode()
