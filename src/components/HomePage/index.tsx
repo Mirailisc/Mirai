@@ -45,11 +45,11 @@ const HomePage = ({ pictures }: any) => {
     'JavaScript (ES6+)',
     'TypeScript',
     'React',
-    'React Native',
-    'Tensorflow',
-    'Node.js',
-    'Python',
-    'Arduino',
+    'Vue/Nuxt',
+    'Docker',
+    'Kubernetes',
+    'GraphQL',
+    'Vite'
   ]
 
   const renderWorkContent = workContents.map((items: IWorkContents, index: number) => {
