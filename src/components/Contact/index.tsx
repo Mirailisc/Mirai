@@ -5,27 +5,55 @@ import { faGithub, faFacebook, faTwitter, faLinkedin } from '@fortawesome/free-b
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { IconButton, Link, useColorMode } from '@chakra-ui/react'
 const Contact = () => {
-    const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode()
 
-    return (
-        <div className={styles.Contact}>
-            <Link isExternal href="https://github.com/Mirailisc">
-                <IconButton variant='ghost' colorScheme={colorMode === 'light' ? 'orange' : 'blue'} aria-label='Github' icon={<FontAwesomeIcon icon={faGithub} />} />
-            </Link>
-            <Link isExternal href="https://www.facebook.com/MirailiscLm/">
-                <IconButton variant='ghost' colorScheme={colorMode === 'light' ? 'orange' : 'blue'} aria-label='Facebook' icon={<FontAwesomeIcon icon={faFacebook} />} />
-            </Link>
-            <Link isExternal href="https://twitter.com/Mirailisc">
-                <IconButton variant='ghost' colorScheme={colorMode === 'light' ? 'orange' : 'blue'} aria-label='Twitter' icon={<FontAwesomeIcon icon={faTwitter} />} />
-            </Link>
-            <Link isExternal href="https://www.linkedin.com/in/phubordin-poolnai-31480a214/">
-                <IconButton variant='ghost' colorScheme={colorMode === 'light' ? 'orange' : 'blue'} aria-label='LinkedIn' icon={<FontAwesomeIcon icon={faLinkedin} />} />
-            </Link>
-            <Link isExternal href="mailto: mirailisclm@gmail.com">
-                <IconButton variant='ghost' colorScheme={colorMode === 'light' ? 'orange' : 'blue'} aria-label='LinkedIn' icon={<FontAwesomeIcon icon={faEnvelope} />} />
-            </Link>
-        </div>
-    )
+  return (
+    <div className={styles.Contact}>
+      <code>Contact Me</code>
+      <div className={styles.contactList}>
+        <Link isExternal href="https://github.com/Mirailisc">
+          <IconButton
+            variant="ghost"
+            colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+            aria-label="Github"
+            icon={<FontAwesomeIcon icon={faGithub} />}
+          />
+        </Link>
+        <Link isExternal href="https://www.facebook.com/MirailiscLm/">
+          <IconButton
+            variant="ghost"
+            colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+            aria-label="Facebook"
+            icon={<FontAwesomeIcon icon={faFacebook} />}
+          />
+        </Link>
+        <Link isExternal href="https://twitter.com/Mirailisc">
+          <IconButton
+            variant="ghost"
+            colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+            aria-label="Twitter"
+            icon={<FontAwesomeIcon icon={faTwitter} />}
+          />
+        </Link>
+        <Link isExternal href="https://www.linkedin.com/in/phubordin-poolnai-31480a214/">
+          <IconButton
+            variant="ghost"
+            colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+            aria-label="LinkedIn"
+            icon={<FontAwesomeIcon icon={faLinkedin} />}
+          />
+        </Link>
+        <Link isExternal href="mailto: mirailisclm@gmail.com">
+          <IconButton
+            variant="ghost"
+            colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+            aria-label="LinkedIn"
+            icon={<FontAwesomeIcon icon={faEnvelope} />}
+          />
+        </Link>
+      </div>
+    </div>
+  )
 }
 
 export default Contact

@@ -2,11 +2,19 @@
     position: fixed;
     bottom: 5px;
     left: 5px;
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    align-items: center;
     z-index: 999;
+
+    code {
+        opacity: 0.3;
+        margin-left: 5px;
+    }
+    
+    .contactList {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+    }
 
     @media screen and (max-width: 700px) {
         display: none;
