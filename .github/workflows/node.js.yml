@@ -5,13 +5,12 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "develop" ]
+    branches: ["develop"]
   pull_request:
-    branches: [ "develop" ]
+    branches: ["develop"]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,12 +19,14 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16.x'
-        cache: 'pnpm'
-    - name: Install dependencies
-      run: pnpm install --frozen-lockfile
-    - run: pnpm run build --if-present
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "pnpm"
+      - name: Use pnpm
+        run: npm i -g pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - run: pnpm run build --if-present
