@@ -27,9 +27,6 @@ import { Fade, Slide } from 'react-awesome-reveal'
 import { workContents, IWorkContents } from '../../service/workContent'
 import { Typewriter } from 'react-simple-typewriter'
 
-import { Parallax } from 'react-parallax'
-import Background from '../../images/background.webp'
-
 const HomePage = ({ pictures }: any) => {
   const { colorMode } = useColorMode()
   const [itemsToShow, setItemsToShow] = useState(4)
@@ -85,24 +82,6 @@ const HomePage = ({ pictures }: any) => {
   return (
     <>
       <motion.div transition={pageTransition} variants={pageVariants} initial="initial" animate="in" exit="out">
-        {/* <Parallax
-          blur={10}
-          bgImage={Background}
-          bgImageAlt="background"
-          bgImageSizes="cover"
-        >
-          <section id="home" className={styles.welcomeSection}>
-            <div className={styles.text}>
-              <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Hi, My name is</Code>
-              <Heading as="h1" size="2xl" style={{color: "white"}}>
-                Phubordin Poolnai
-              </Heading>
-              <Text fontSize="xl" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
-                Developer - Student - Anime Enjoyer
-              </Text>
-            </div>
-          </section>
-        </Parallax> */}
         <section id="home" className={styles.welcomeSection}>
           <div className={styles.text}>
             <Code colorScheme={'blue'}>Hi, My name is</Code>
