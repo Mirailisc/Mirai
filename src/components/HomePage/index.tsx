@@ -25,9 +25,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { projects } from '../../service/project'
 import { Fade, Slide } from 'react-awesome-reveal'
 import { workContents, IWorkContents } from '../../service/workContent'
-
-import { Parallax } from 'react-parallax'
-import Background from '../../images/background.webp'
+import { Typewriter } from 'react-simple-typewriter'
 
 const HomePage = ({ pictures }: any) => {
   const { colorMode } = useColorMode()
@@ -45,32 +43,32 @@ const HomePage = ({ pictures }: any) => {
     'JavaScript (ES6+)',
     'TypeScript',
     'React',
-    'React Native',
-    'Tensorflow',
-    'Node.js',
-    'Python',
-    'Arduino',
+    'Vue/Nuxt',
+    'Docker',
+    'Kubernetes',
+    'GraphQL',
+    'Vite',
   ]
 
   const renderWorkContent = workContents.map((items: IWorkContents, index: number) => {
     return (
       <>
         <Fade direction="up" key={index++}>
-          <Text fontSize="xl" mt={5} fontWeight="bold">
+          <Text fontSize="xl" mt={5} fontWeight="bold" className={styles.text}>
             {items.header}&nbsp;
-            <Text color={colorMode === 'light' ? 'orange.500' : 'blue.200'} as="span">
+            <Text color={'black'} as="span">
               @&nbsp;
             </Text>
-            <Link color={colorMode === 'light' ? 'orange.500' : 'blue.200'} href={items.companyUrl} isExternal>
+            <Link color={'black'} href={items.companyUrl} isExternal>
               {items.companyName}
             </Link>
           </Text>
-          <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>{items.workDate}</Code>
+          <Code className={styles.tag}>{items.workDate}</Code>
           <List spacing={3} mt={5} className={styles.list}>
             {items.workDetails.map((works: string, index: number) => {
               return (
                 <ListItem key={index++}>
-                  <ListIcon as={ChevronRightIcon} color={colorMode === 'light' ? 'orange.500' : 'blue.200'} />
+                  <ListIcon as={ChevronRightIcon} color={'black'} />
                   {works}
                 </ListItem>
               )
@@ -84,28 +82,30 @@ const HomePage = ({ pictures }: any) => {
   return (
     <>
       <motion.div transition={pageTransition} variants={pageVariants} initial="initial" animate="in" exit="out">
-        <Parallax
-          blur={10}
-          bgImage={Background}
-          bgImageAlt="background"
-          bgImageSizes="cover"
-        >
-          <section id="home" className={styles.welcomeSection}>
-            <div className={styles.text}>
-              <Code colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>Hi, My name is</Code>
-              <Heading as="h1" size="2xl" style={{color: "white"}}>
-                Phubordin Poolnai
-              </Heading>
-              <Text fontSize="xl" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
-                Developer - Student - Anime Enjoyer
-              </Text>
-            </div>
-          </section>
-        </Parallax>
+        <section id="home" className={styles.welcomeSection}>
+          <div className={styles.text}>
+            <Code colorScheme={'blue'}>Hi, My name is</Code>
+            <Heading as="h1" size="2xl" color={colorMode === 'light' ? 'black' : 'white'}>
+              <Typewriter
+                loop
+                cursor
+                cursorStyle="_"
+                typeSpeed={60}
+                deleteSpeed={100}
+                delaySpeed={1000}
+                words={['Phubordin Poolnai', 'Mirailisc', 'Mira', 'Mark']}
+              />
+            </Heading>
+            <Text fontSize="xl" color={colorMode === 'light' ? 'blue.500' : 'blue.200'}>
+              Developer - Designer - Student
+            </Text>
+          </div>
+          <div className={styles.avatar}></div>
+        </section>
         <section id="about" className={styles.aboutSection}>
           <Container maxW="container.lg">
             <div className={styles.header}>
-              <Heading as="h2" size="lg" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
+              <Heading as="h2" size="lg" color={colorMode === 'light' ? 'blue.500' : 'blue.200'}>
                 About Me
               </Heading>
               <Divider />
@@ -117,25 +117,25 @@ const HomePage = ({ pictures }: any) => {
                     Hi, I'm Mark. I'm a senior student at{' '}
                     <Link
                       href="https://www.satit.nu.ac.th/"
-                      color={colorMode === 'light' ? 'orange.500' : 'blue.200'}
+                      color={colorMode === 'light' ? 'blue.500' : 'blue.200'}
                       isExternal
                     >
                       Naresuan University Secondary Demonstration School.
                     </Link>{' '}
-                    And, I love to create hilarious things with the passion of becoming a developer.
+                    And, I love to create funny things with the passion of becoming a developer.
                   </Text>
                   <Text mt={5}>
-                    Sometimes I love to watch some anime and play some games. But, I often listen to music and clean my
-                    room.
+                    Sometimes I love to watch some anime and play some games. But, I often listen to music and read some
+                    blogs.
                   </Text>
-                  <Text mt={5}>Here are a few things that I'm currently learning and working on : </Text>
+                  <Text mt={5}>Here are a few things that I'm currently learning and working on</Text>
                 </Fade>
                 <Slide>
                   <List spacing={3} mt={5} className={styles.list}>
                     {techAndLanguage.map((items, index: number) => {
                       return (
                         <ListItem key={index++}>
-                          <ListIcon as={ChevronRightIcon} color={colorMode === 'light' ? 'orange.500' : 'blue.200'} />
+                          <ListIcon as={ChevronRightIcon} color={colorMode === 'light' ? 'blue.500' : 'blue.200'} />
                           {items}
                         </ListItem>
                       )
@@ -150,8 +150,8 @@ const HomePage = ({ pictures }: any) => {
         <section className={styles.workSection}>
           <Container maxW="container.md">
             <div className={styles.header}>
-              <Heading as="h2" size="lg" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
-                Experience
+              <Heading as="h2" size="lg" color={'white'}>
+                Exper&nbsp;ience
               </Heading>
               <Divider />
             </div>
@@ -161,7 +161,7 @@ const HomePage = ({ pictures }: any) => {
         <section className={styles.projectSection}>
           <Container maxW="container.lg">
             <div className={styles.header}>
-              <Heading as="h2" size="lg" color={colorMode === 'light' ? 'orange.500' : 'blue.200'}>
+              <Heading as="h2" size="lg" color={colorMode === 'light' ? 'blue.500' : 'blue.200'}>
                 Projects
               </Heading>
               <Divider />
@@ -188,7 +188,7 @@ const HomePage = ({ pictures }: any) => {
                         <Link isExternal href={items.sourceHref}>
                           <IconButton
                             variant="ghost"
-                            colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+                            colorScheme={'blue'}
                             aria-label="Github"
                             mr={2}
                             icon={<FontAwesomeIcon icon={faGithub} />}
@@ -198,7 +198,7 @@ const HomePage = ({ pictures }: any) => {
                           <Link isExternal href={items.href}>
                             <IconButton
                               variant="ghost"
-                              colorScheme={colorMode === 'light' ? 'orange' : 'blue'}
+                              colorScheme={'blue'}
                               aria-label="Github"
                               icon={<FontAwesomeIcon icon={faArrowUpRightFromSquare} />}
                             />
@@ -211,11 +211,11 @@ const HomePage = ({ pictures }: any) => {
               })}
               <div>
                 {itemsToShow === 4 ? (
-                  <Button mt={10} onClick={showmore} colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>
+                  <Button mt={10} onClick={showmore} colorScheme={'blue'}>
                     Show More
                   </Button>
                 ) : (
-                  <Button mt={10} onClick={showless} colorScheme={colorMode === 'light' ? 'orange' : 'blue'}>
+                  <Button mt={10} onClick={showless} colorScheme={'blue'}>
                     Show Less
                   </Button>
                 )}

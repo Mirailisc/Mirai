@@ -1,15 +1,15 @@
 export const pageVariants = {
   initial: {
     opacity: 0,
-    y: '100vh',
+    x: '100vh',
   },
   in: {
     opacity: 1,
-    y: 0,
+    x: 0,
   },
   out: {
     opacity: 0,
-    y: '-100vh',
+    x: '-100vh',
   },
 }
 

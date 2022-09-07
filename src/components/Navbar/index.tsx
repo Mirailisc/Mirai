@@ -21,7 +21,7 @@ const Navbar = () => {
         <Link className={styles.Link} href="https://github.com/Mirailisc/Mirai" isExternal>
           source
         </Link>
-        <Button className={styles.modeToggler} colorScheme={colorMode === 'light' ? 'orange' : 'blue'} onClick={toggleColorMode}>{colorMode === 'light' ? <MoonIcon /> : <SunIcon />}</Button>
+        <Button className={styles.modeToggler} colorScheme={colorMode === 'light' ? 'orange' : 'blue'} onClick={toggleColorMode}>{colorMode === 'light' ? <SunIcon /> : <MoonIcon />}</Button>
         <Menu>
           <MenuButton as={Button} variant="outline" className={styles.toggler}>
             <HamburgerIcon/>

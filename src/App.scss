@@ -18,6 +18,7 @@
 
 .App {
     animation: fadeIn 1s ease;
+    overflow-x: hidden;
 }
 
 @keyframes fade {
