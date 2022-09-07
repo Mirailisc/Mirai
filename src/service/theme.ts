@@ -3,19 +3,20 @@ import { mode } from '@chakra-ui/theme-tools'
 
 const config: ThemeConfig = {
   useSystemColorMode: false,
-  initialColorMode: "light",
+  initialColorMode: 'system',
 }
 
-export const theme = extendTheme({ config,
+export const theme = extendTheme({
+  config,
   styles: {
     global: (props: any) => ({
       body: {
         bg: mode('white', '#171923')(props),
-      }
-    })
+      },
+    }),
   },
   fonts: {
     heading: 'Montserrat, sans-serif',
     body: 'Montserrat, sans-serif',
-  }
+  },
 })

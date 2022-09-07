@@ -17,6 +17,24 @@
     }
 
     @media screen and (max-width: 700px) {
-        display: none;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px 10px 0 0;
+
+        .contactList {
+            gap: 10px;
+        }
+
+        code {
+            display: none;
+        }
+
+        background: rgba(0, 0, 0, 0.5);
     }
 }

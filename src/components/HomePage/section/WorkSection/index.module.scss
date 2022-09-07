@@ -1,0 +1,41 @@
+.workSection {
+    min-height: 50vh;
+    background: linear-gradient(135deg, #39ACFF 0%, #293FFF 100%);
+    backdrop-filter: blur(10px);
+    padding-block: 20px;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px 68px -23px rgba(0,0,0,0.75);
+
+    .tag {
+        background: linear-gradient(135deg, #D739FF 0%, #4729FF 100%);
+        box-shadow: 1px 1px 24px -8px rgba(0,0,0,0.75);
+        color: #FFFFFF;
+    }
+
+    .text {
+        color: #FFFFFF;
+    }
+    
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        h2 {
+            width: 230px;
+            background: linear-gradient(90deg, #171923 52%, transparent  48%);
+            text-align: center;
+        }
+    }
+    
+    .list {
+        color: white;
+    }
+
+    @media screen and (max-width: 500px) {
+        .header h2 {
+            width: 400px;
+        }
+    }
+}

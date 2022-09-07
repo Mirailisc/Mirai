@@ -4,16 +4,10 @@ import { motion } from 'framer-motion'
 import { pageVariants, pageTransition } from '../../service/transition'
 import { Text } from '@chakra-ui/react'
 
-const CertPage = ({pictures}: any) => {
+const CertPage = ({ pictures }: any) => {
   return (
     <>
-      <motion.div
-        transition={pageTransition}
-        variants={pageVariants}
-        initial="initial"
-        animate="in"
-        exit="out"
-      >
+      <motion.div transition={pageTransition} variants={pageVariants} initial="initial" animate="in" exit="out">
         <div className={styles.certificates}>
           {pictures.map((items: any, index: number) => {
             return (
