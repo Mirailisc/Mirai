@@ -1,0 +1,30 @@
+.welcomeSection {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    .text {
+        text-align: center;
+    }
+
+    @media screen and (max-width: 820px) {
+        flex-direction: column;
+        justify-content: center;
+
+        .text {
+            padding: 10px;
+
+            h1 {
+                font-size: 28px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        .text > p {
+            font-size: 14px;
+        }
+    }
+}

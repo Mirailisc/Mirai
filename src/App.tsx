@@ -55,7 +55,7 @@ function App() {
             <Contact />
             <AnimatePresence exitBeforeEnter>
               <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<HomePage pictures={imgs}/>} />
+                <Route path="/" element={<HomePage pictures={imgs} />} />
                 <Route path="/certificate" element={<CertPage pictures={certificates} />} />
               </Routes>
             </AnimatePresence>
