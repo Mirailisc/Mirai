@@ -10,12 +10,10 @@ import CertPage from './components/CertPage'
 import { AnimatePresence } from 'framer-motion'
 
 // Images
-import Logo_light from './images/logo_light.webp'
 import { imgs, certificates } from './components/_importImage'
 
 function App() {
   const location = useLocation()
-  const [loading, setLoading] = useState(true)
 
   const cacheImages = async (srcArray: any) => {
     const promises = await srcArray.map((src: any) => {
@@ -33,10 +31,6 @@ function App() {
     const preLoadImage = async () => {
       await cacheImages(imgs)
       await cacheImages(certificates)
-
-      setTimeout(() => {
-        setLoading(false)
-      })
     }
 
     preLoadImage().catch(console.error)
@@ -44,24 +38,18 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      {loading ? (
-        <div className="loading">
-          <img src={Logo_light} alt="logo" />
+      <>
+        <div className="App">
+          <Navbar />
+          <Contact />
+          <AnimatePresence exitBeforeEnter>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<HomePage pictures={imgs} />} />
+              <Route path="/certificate" element={<CertPage pictures={certificates} />} />
+            </Routes>
+          </AnimatePresence>
         </div>
-      ) : (
-        <>
-          <div className="App">
-            <Navbar />
-            <Contact />
-            <AnimatePresence exitBeforeEnter>
-              <Routes location={location} key={location.pathname}>
-                <Route path="/" element={<HomePage pictures={imgs} />} />
-                <Route path="/certificate" element={<CertPage pictures={certificates} />} />
-              </Routes>
-            </AnimatePresence>
-          </div>
-        </>
-      )}
+      </>
     </ChakraProvider>
   )
 }
