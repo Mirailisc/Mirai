@@ -16,7 +16,7 @@ const Navbar = () => {
         <ReachLink to="/" className={styles.header}>
           <img src={colorMode === 'light' ? Logo_dark : Logo_light} alt="logo" />
         </ReachLink>
-        <Link href="https://webring.wonderful.software/#/mirailisc.me" className={styles.webRing}>
+        <Link href="https://webring.wonderful.software#mirailisc.me" className={styles.webRing}>
           <img
             src={colorMode === 'light' ? webRing : 'https://webring.wonderful.software/webring.white.svg'}
             width="32"
