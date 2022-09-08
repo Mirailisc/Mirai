@@ -10,26 +10,32 @@
     align-items: center;
     z-index: 999;
 
-    .header {
+    .navBrand {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 20px;
-        z-index: 990;
-
-        h1 {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0;
-            padding: 0;
-
-            @media screen and (max-width: 330px) {
-                display: none;
+        .header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            z-index: 990;
+    
+            h1 {
+                font-size: 24px;
+                font-weight: bold;
+                margin: 0;
+                padding: 0;
+    
+                @media screen and (max-width: 330px) {
+                    display: none;
+                }
             }
-        }
-
-        img {
-            width: 25px;
+    
+            img {
+                width: 25px;
+            }
         }
     }
 
