@@ -34,8 +34,12 @@
             }
         }
 
-        .text .list {
-            columns: 2;
+        .text {
+            margin-bottom: 5rem;
+        
+            .list {
+                columns: 2;
+            }
         }
     }
 
