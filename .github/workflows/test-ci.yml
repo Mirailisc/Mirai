@@ -19,20 +19,23 @@ jobs:
 
     steps:
       - name: Checkout
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
+
       - uses: pnpm/action-setup@v2
         with:
           version: 7.11.0
 
       - name: Setup Node.js with pnpm
-      - uses: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: "16.x"
           cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - run: pnpm run build --if-present
+      
+      - name: Build
+        run: pnpm run build --if-present
 
       - name: Netlify Actions
         uses: nwtgck/actions-netlify@v1.2.3

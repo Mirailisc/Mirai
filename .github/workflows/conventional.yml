@@ -6,9 +6,24 @@ jobs:
   lint-commits:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v2.1.0
-      - run: pnpm add @commitlint/cli
-      - run: pnpm run commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
+
+      - uses: actions/setup-node@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7.11.0
+      
+      - name: Setup Node.js with pnpm
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "pnpm"
+
+      - name: Install @commitlint/cli
+        run: pnpm add @commitlint/cli
+
+      - name: Run @commitlint/cli 
+        run: pnpm run commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD
