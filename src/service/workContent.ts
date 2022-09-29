@@ -13,7 +13,7 @@ export const workContents: IWorkContents[] = [
     header: 'Web Developer',
     companyName: 'NUD Channel',
     companyUrl: 'https://nudchannel.com/',
-    workDate: 'June 2021 - Present',
+    workDate: 'June 2022 - Present',
     workDetails: [
       'My job is to develop and maintain every front-end application',
       'I also teach my junior about basic web development and JavaScript',
