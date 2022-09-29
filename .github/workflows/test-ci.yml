@@ -7,7 +7,7 @@ on:
   push:
     branches: ["develop"]
   pull_request:
-    branches: ["develop"]
+    branches: ["main"]
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      
+
       - name: Build
         run: pnpm run build --if-present
 
