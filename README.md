@@ -1,4 +1,3 @@
-[![Node.js CI](https://github.com/Mirailisc/Mirai/actions/workflows/node.js.yml/badge.svg)](https://github.com/Mirailisc/Mirai/actions/workflows/node.js.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8b54735e-1a67-43c5-8dcd-352ed9160193/deploy-status)](https://app.netlify.com/sites/mirailisc/deploys)
 # Getting Started with Create React App
 
