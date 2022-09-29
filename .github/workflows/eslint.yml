@@ -37,5 +37,5 @@ jobs:
           pnpm add @microsoft/eslint-formatter-sarif@2.1.7
 
       - name: Run ESLint
-        run: pnpx eslint . --ext .js,.jsx,.ts,.tsx --config .eslint.js
+        run: pnpx eslint . --ext .js,.jsx,.ts,.tsx --config .eslintrc.js
         continue-on-error: true
