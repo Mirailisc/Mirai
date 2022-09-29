@@ -33,7 +33,7 @@ const Contact = () => {
             icon={<FontAwesomeIcon icon={faTwitter} />}
           />
         </Link>
-        <Link isExternal href="https://www.linkedin.com/in/phubordin-poolnai-31480a214/">
+        <Link isExternal href="https://www.linkedin.com/in/phubordin/">
           <IconButton
             variant="ghost"
             colorScheme={'blue'}
@@ -41,11 +41,11 @@ const Contact = () => {
             icon={<FontAwesomeIcon icon={faLinkedin} />}
           />
         </Link>
-        <Link isExternal href="mailto: mirailisclm@gmail.com">
+        <Link isExternal href="mailto: phubordin@mirailisc.me">
           <IconButton
             variant="ghost"
             colorScheme={'blue'}
-            aria-label="LinkedIn"
+            aria-label="Email"
             icon={<FontAwesomeIcon icon={faEnvelope} />}
           />
         </Link>
