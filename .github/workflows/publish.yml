@@ -1,16 +1,17 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Build and Deployment
+name: Publish
 
 on:
   push:
     branches: ["main"]
   pull_request:
-    branches: ["main"]
+    branches: ["*"]
 
 jobs:
-  build-netlify:
+  test:
+    name: Test
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,15 +19,40 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v3.1.0
 
       - uses: pnpm/action-setup@v2.2.2
         with:
           version: 7.11.0
 
-      - name: Setup Node.js with pnpm
-        uses: actions/setup-node@v3.5.0
+      - uses: actions/setup-node@v3.5.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Test
+        run: pnpm run test --passWithNoTests
+
+  build-netlify:
+    name: Building for Netlify
+    needs: [test]
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v3.1.0
+
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.11.0
+
+      - uses: actions/setup-node@v3.5.0
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
@@ -52,13 +78,34 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
 
-  webhook:
-    needs: [build-netlify]
+  publish:
+    name: Publish Release Version
+    needs: [test, build-netlify]
+    if: ${{ github.ref == 'refs/heads/main'}}
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
+    steps:
+      - uses: actions/checkout@v3.1.0
+
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.11.0
+
+      - uses: actions/setup-node@v3.5.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Release
+        run: pnpm run semantic-release
+
+  webhook:
+    name: Discord Webhook
+    needs: [test, build-netlify, publish]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Discord notification

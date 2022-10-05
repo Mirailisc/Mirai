@@ -8,7 +8,8 @@ on:
     - cron: "0 0 * * 0"
 
 jobs:
-  build:
+  updater:
+    name: Updater for Github Action
     runs-on: ubuntu-latest
 
     steps:
@@ -25,17 +26,3 @@ jobs:
           pull_request_title: "Pull Request Title"
           token: ${{ secrets.WORKFLOW_SECRET }}
           ignore: '["actions/checkout@v2", "actions/cache@v2"]'
-
-      - uses: paulhatch/semantic-version@v4.0.3
-        with:
-          tag_prefix: "v"
-          major_pattern: "(MAJOR)"
-          major_regexp_flags: ""
-          minor_pattern: "(MINOR)"
-          minor_regexp_flags: ""
-          format: "${major}.${minor}.${patch}-prerelease${increment}"
-          change_path: "src/my-service"
-          namespace: my-service
-          bump_each_commit: false
-          search_commit_body: false
-          user_format_type: "csv"
