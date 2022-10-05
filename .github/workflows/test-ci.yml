@@ -37,14 +37,14 @@ jobs:
       - name: Build
         run: pnpm run build --if-present
 
-  deploy:
+  netlify-action:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
+
       - name: Netlify Actions
         uses: nwtgck/actions-netlify@v1.2.3
         with:
@@ -58,3 +58,19 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           timeout-minutes: 5
+
+  netlify-deploy:
+    needs: [netlify-action, build]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Netlify Deploy
+        uses: jsmrcaga/action-netlify-deploy@v1.1.0
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_MESSAGE: "Production deploy v${{ github.ref }}"
+          NETLIFY_DEPLOY_TO_PROD: true
