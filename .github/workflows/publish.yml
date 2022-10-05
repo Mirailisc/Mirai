@@ -34,7 +34,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Test
-        run: pnpm run test
+        run: pnpm run test --passWithNoTests
 
   build-netlify:
     name: Building for Netlify
