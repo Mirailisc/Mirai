@@ -11,7 +11,8 @@ on:
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    name: Test
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -36,8 +37,9 @@ jobs:
         run: pnpm run test
 
   build-netlify:
+    name: Building for Netlify
     needs: [test]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
@@ -77,9 +79,10 @@ jobs:
         timeout-minutes: 5
 
   publish:
+    name: Publish Release Version
     needs: [test, build-netlify]
     if: ${{ github.ref == 'refs/heads/main'}}
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3.1.0
@@ -100,8 +103,9 @@ jobs:
         run: pnpm run semantic-release
 
   webhook:
+    name: Discord Webhook
     needs: [test, build-netlify, publish]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
 
     steps:
       - name: Discord notification

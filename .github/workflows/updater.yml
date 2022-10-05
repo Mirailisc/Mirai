@@ -9,6 +9,7 @@ on:
 
 jobs:
   updater:
+    name: Updater for Github Action
     runs-on: ubuntu-latest
 
     steps:
