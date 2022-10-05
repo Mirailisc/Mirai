@@ -37,6 +37,15 @@ jobs:
       - name: Build
         run: pnpm run build --if-present
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
       - name: Netlify Actions
         uses: nwtgck/actions-netlify@v1.2.3
         with:
