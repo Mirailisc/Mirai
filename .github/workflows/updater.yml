@@ -26,7 +26,7 @@ jobs:
           token: ${{ secrets.WORKFLOW_SECRET }}
           ignore: '["actions/checkout@v2", "actions/cache@v2"]'
 
-      - uses: paulhatch/semantic-version@v4.0.2
+      - uses: paulhatch/semantic-version@v4.0.3
         with:
           tag_prefix: "v"
           major_pattern: "(MAJOR)"
