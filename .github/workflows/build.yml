@@ -71,7 +71,7 @@ jobs:
         timeout-minutes: 5
 
   webhook:
-    needs: build
+    needs: [build, deploy]
     runs-on: ubuntu-latest
 
     steps:
