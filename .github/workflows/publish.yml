@@ -37,7 +37,7 @@ jobs:
 
   publish:
     name: Publish Release Version
-    needs: [test, build-netlify]
+    needs: [test]
     if: ${{ github.ref == 'refs/heads/main'}}
     runs-on: ubuntu-latest
 
@@ -64,7 +64,7 @@ jobs:
 
   webhook:
     name: Discord Webhook
-    needs: [test, build-netlify, publish]
+    needs: [test, publish]
     runs-on: ubuntu-latest
 
     steps:
@@ -77,7 +77,7 @@ jobs:
 
   build-netlify:
     name: Building for Netlify
-    needs: [test]
+    needs: [test, publish]
     runs-on: ubuntu-latest
 
     strategy:
