@@ -1,0 +1,25 @@
+name: GitHub Actions Version Updater
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.WORKFLOW_SECRET }}
+
+      - name: Run GitHub Actions Version Updater
+        uses: saadmk11/github-actions-version-updater@v0.5.6
+        with:
+          committer_username: "Mirailisc"
+          committer_email: "mirailisclm@gmail.com"
+          commit_message: "Commit Message"
+          pull_request_title: "Pull Request Title"
+          token: ${{ secrets.WORKFLOW_SECRET }}
+          ignore: '["actions/checkout@v2", "actions/cache@v2"]'
