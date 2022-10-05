@@ -53,7 +53,7 @@ jobs:
         timeout-minutes: 5
 
   webhook:
-    needs: [build]
+    needs: [build-netlify]
     runs-on: ubuntu-latest
 
     strategy:
