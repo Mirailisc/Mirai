@@ -19,14 +19,14 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3.1.0
 
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v2.2.2
         with:
           version: 7.11.0
 
       - name: Setup Node.js with pnpm
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3.5.0
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
@@ -64,6 +64,6 @@ jobs:
       - name: Discord notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@master
+        uses: Ilshidur/action-discord@0.3.2
         with:
           args: "The project `{{ EVENT_PAYLOAD.repository.full_name }}` has been deployed."
