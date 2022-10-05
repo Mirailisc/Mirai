@@ -9,7 +9,8 @@ on:
 
 jobs:
   lint:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
     steps:
       - uses: aslafy-z/conventional-pr-title-action@v2.4.4
         with:
