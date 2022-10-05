@@ -7,7 +7,7 @@ on:
   push:
     branches: ["main"]
   pull_request:
-    branches: '*'
+    branches: "*"
 
 jobs:
   test:
@@ -35,6 +35,46 @@ jobs:
 
       - name: Test
         run: pnpm run test --passWithNoTests
+
+  publish:
+    name: Publish Release Version
+    needs: [test, build-netlify]
+    if: ${{ github.ref == 'refs/heads/main'}}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.1.0
+
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7.11.0
+
+      - uses: actions/setup-node@v3.5.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Release
+        run: pnpm run semantic-release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  webhook:
+    name: Discord Webhook
+    needs: [test, build-netlify, publish]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@0.3.2
+        with:
+          args: "The project `{{ EVENT_PAYLOAD.repository.full_name }}` has been deployed."
 
   build-netlify:
     name: Building for Netlify
@@ -77,43 +117,3 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         timeout-minutes: 5
-
-  publish:
-    name: Publish Release Version
-    needs: [test, build-netlify]
-    if: ${{ github.ref == 'refs/heads/main'}}
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3.1.0
-
-      - uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 7.11.0
-
-      - uses: actions/setup-node@v3.5.0
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Release
-        run: pnpm run semantic-release
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  webhook:
-    name: Discord Webhook
-    needs: [test, build-netlify, publish]
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Discord notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-        uses: Ilshidur/action-discord@0.3.2
-        with:
-          args: "The project `{{ EVENT_PAYLOAD.repository.full_name }}` has been deployed."
