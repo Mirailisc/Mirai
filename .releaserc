@@ -1,8 +1,0 @@
-{
-  "release": {
-    "branches": [
-      "main",
-      "next"
-    ]
-  }
-}
