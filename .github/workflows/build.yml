@@ -10,7 +10,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build:
+  build-netlify:
     runs-on: ubuntu-latest
 
     strategy:
@@ -36,28 +36,6 @@ jobs:
 
       - name: Build
         run: pnpm run build --if-present
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7.11.0
-
-      - name: Setup Node.js with pnpm
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
 
       - name: Netlify Actions
         uses: nwtgck/actions-netlify@v1.2.3
