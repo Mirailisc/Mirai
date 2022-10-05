@@ -1,6 +1,6 @@
 {
   "name": "mirai",
-  "version": "1.1.2",
+  "version": "0.0.0-development",
   "author": "Mirailisc",
   "homepage": "https://mirailisc.me",
   "private": true,
@@ -43,7 +43,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "semantic-release": "semantic-release"
   },
   "eslintConfig": {
     "extends": [
@@ -70,9 +71,14 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.7",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "semantic-release": "^19.0.5"
   },
   "lint": "eslint .",
   "lint:fix": "eslint --fix",
-  "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+  "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mirailisc/Mirai.git"
+  }
 }
