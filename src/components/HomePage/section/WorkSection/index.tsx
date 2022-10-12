@@ -8,30 +8,28 @@ import { Fade } from 'react-awesome-reveal'
 const WorkSection = () => {
   const renderWorkContent = workContents.map((items: IWorkContents, index: number) => {
     return (
-      <>
-        <Fade direction="up" key={index++}>
-          <Text fontSize="xl" mt={5} fontWeight="bold" className={styles.text}>
-            {items.header}&nbsp;
-            <Text color={'black'} as="span">
-              @&nbsp;
-            </Text>
-            <Link color={'black'} href={items.companyUrl} isExternal>
-              {items.companyName}
-            </Link>
+      <Fade direction="up" key={index++}>
+        <Text fontSize="xl" mt={5} fontWeight="bold" className={styles.text}>
+          {items.header}&nbsp;
+          <Text color={'black'} as="span">
+            @&nbsp;
           </Text>
-          <Code className={styles.tag}>{items.workDate}</Code>
-          <List spacing={3} mt={5} className={styles.list}>
-            {items.workDetails.map((works: string, index: number) => {
-              return (
-                <ListItem key={index++}>
-                  <ListIcon as={ChevronRightIcon} color={'black'} />
-                  {works}
-                </ListItem>
-              )
-            })}
-          </List>
-        </Fade>
-      </>
+          <Link color={'black'} href={items.companyUrl} isExternal>
+            {items.companyName}
+          </Link>
+        </Text>
+        <Code className={styles.tag}>{items.workDate}</Code>
+        <List spacing={3} mt={5} className={styles.list}>
+          {items.workDetails.map((works: string, index: number) => {
+            return (
+              <ListItem key={index++}>
+                <ListIcon as={ChevronRightIcon} color={'black'} />
+                {works}
+              </ListItem>
+            )
+          })}
+        </List>
+      </Fade>
     )
   })
   return (
