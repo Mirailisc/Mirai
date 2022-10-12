@@ -9,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 999;
+    animation: fadeDown 1s ease;
 
     .navBrand {
         display: flex;
@@ -73,5 +74,14 @@
                 display: none;
             }    
         }
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        transform: translateY(-5rem);
+    }
+    to {
+        transform: translateY(0);
     }
 }

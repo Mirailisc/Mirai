@@ -3,6 +3,7 @@
     bottom: 5px;
     left: 5px;
     z-index: 999;
+    animation: fadeUp 1s ease;
 
     code {
         opacity: 0.3;
@@ -34,5 +35,14 @@
         code {
             display: none;
         }
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(5rem);
+    }
+    to {
+        transform: translateY(0);
     }
 }

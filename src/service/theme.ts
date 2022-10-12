@@ -6,7 +6,7 @@ const config: ThemeConfig = {
   initialColorMode: 'system',
 }
 
-export const theme = extendTheme({
+const theme = extendTheme({
   config,
   styles: {
     global: (props: any) => ({
@@ -16,7 +16,9 @@ export const theme = extendTheme({
     }),
   },
   fonts: {
-    heading: 'Montserrat, sans-serif',
-    body: 'Montserrat, sans-serif',
+    heading: `'Montserrat', sans-serif`,
+    body: `'Montserrat', sans-serif`,
   },
 })
+
+export default theme
