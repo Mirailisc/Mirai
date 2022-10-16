@@ -18,13 +18,13 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v2.5.0
 
-      - uses: pnpm/action-setup@v2.2.3
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.11.0
 
-      - uses: actions/setup-node@v3.5.0
+      - uses: actions/setup-node@v3.5.1
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
@@ -42,13 +42,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v2.5.0
 
-      - uses: pnpm/action-setup@v2.2.3
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.11.0
 
-      - uses: actions/setup-node@v3.5.0
+      - uses: actions/setup-node@v3.5.1
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
@@ -85,13 +85,13 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v3.1.0
+      - uses: actions/checkout@v2.5.0
 
-      - uses: pnpm/action-setup@v2.2.3
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7.11.0
 
-      - uses: actions/setup-node@v3.5.0
+      - uses: actions/setup-node@v3.5.1
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
@@ -103,7 +103,7 @@ jobs:
         run: pnpm run build --if-present
 
       - name: Netlify Actions
-        uses: nwtgck/actions-netlify@v1.2.3
+        uses: nwtgck/actions-netlify@v1.2.4
         with:
           publish-dir: "./build"
           production-branch: main
