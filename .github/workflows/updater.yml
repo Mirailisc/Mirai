@@ -22,7 +22,7 @@ jobs:
         with:
           committer_username: "Mirailisc"
           committer_email: "mirailisclm@gmail.com"
-          commit_message: "Commit Message"
-          pull_request_title: "Pull Request Title"
+          commit_message: "update versions"
+          pull_request_title: "ci: github action update versions"
           token: ${{ secrets.WORKFLOW_SECRET }}
           ignore: '["actions/checkout@v2", "actions/cache@v2"]'
